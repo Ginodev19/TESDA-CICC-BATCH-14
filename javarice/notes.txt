@@ -1,0 +1,18 @@
+The Java Development Kit (JDK) provides the development tools (like the javac compiler) and the environment required to build and execute Java applications
+-use to write and run java programs
+
+The Java Runtime Environment (JRE) is a software package that provides the class libraries, Java Virtual Machine (JVM), and other components required to run Java programs.
+-use to run java programs 
+
+JAVA IS STRICTLY CASE SENSITIVE
+
+System.out.println(): 
+-use to display something in console
+System.out.println("Hello World");
+
+System.out.print():
+-use to display something in the console on the same line
+(will work if this code is before the code)
+
+\n 
+new line inside curly braces ("\n")
