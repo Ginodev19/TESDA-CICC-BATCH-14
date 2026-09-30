@@ -16,3 +16,61 @@ System.out.print():
 
 \n 
 new line inside curly braces ("\n")
+
+-------------------------------------------------------------------------------------
+Variables
+-variables are use to store up temporary data to be used in our programs's runtime
+
+Data Type
+-The type ofData inside out variable
+
+DATA TYPES:
+
+Characters - char(Holds a Single Character)
+String - String (Holds a Set of Characters/Texts)
+Boolean- boolean(Holds True or False)
+
+Integers
+• bytes (-128 to 127)
+• short (-32768 to 3267)
+• int (-2,147,483,648 to 2,147,483,647)
+• long (-9,223,372,036,854,775,808 to 9,223,372,036,854,775,808)
+
+Floating Point
+• float (3.4e-038f to 3.48+038f)
+• double (1.7e-308 to 1.7e+038)
+
+Identifiers 
+- It is the Name of the variable that the programmer indicated it is use to Reand and Write the variable
+
+Rules of Identifier 
+•YOU CANNOT USE ANY SPECIAL CHARACTERS OTHER THAN UNDERSCORE_
+•YOU CANNOT USE WHITESPACES
+•YOU CANNOT USE NUMBERS ALONE
+•YOU CAN USE NUMBER BUT WITH LETTERS
+
+Declaring Variables
+SYNTAX:
+datatype identifier;
+datatype identifier = value;
+ 
+ Reasigning Variables
+ SYNTAX:
+ identifer = value;
+
+ Concatenation
+ The process of joining Strings together with the plus operator
+
+EXAMPLE:
+ "Hello"+ "World"
+ "2" + "3"   23 lalabas
+ 'a' + "b"   ab lalabas   
+ 2 + "3"    23 lalabas anthing that added to a string will converted to a string
+
+ NOT EXAMPLE
+ 2 + 3
+ 'a' + 3 char is turned to ASCII if you associate it to a number    
+
+ YOU CAN CONTATENATE INSIDE A VARIABLE OR ON THE PRINT STATEMENT
+
+ 
