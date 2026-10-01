@@ -6,6 +6,10 @@ The Java Runtime Environment (JRE) is a software package that provides the class
 
 JAVA IS STRICTLY CASE SENSITIVE
 
+ public static void main(String[] args) {
+ }
+ -dapat psvm tlga sya di gagana pag may naiba
+
 System.out.println(): 
 -use to display something in console
 System.out.println("Hello World");
@@ -73,4 +77,72 @@ EXAMPLE:
 
  YOU CAN CONTATENATE INSIDE A VARIABLE OR ON THE PRINT STATEMENT
 
+ Built -In Packages
+ Java API has many pre-written classes to help the programmer manage input database and etc.
+
+ Explanation:
+ In Java, built-in packages are collections of pre-written classes, interfaces, and sub-packages that come automatically bundled with the Java Development Kit (JDK). They provide the foundational building blocks of the language, saving you from writing utility structures, file handlers, or networking tools from scratch
+
+ mga code na galing kay java na pwede gamitin
+-------------------------------------------------------------------------
+ Importing Packages 
+
+IMPORT SPECIFIC CLASS
+import packagename.classname 
+
+IMPORT WHOLE PACKAGE
+import packagename.*
+
+java.util.Scanner
+a class in the java.util Package that helps programmers handle inputs from the user.
+
+In Java, we use import statements to give our program access to pre-written code packages that are built into the Java language.
+By default, Java only loads a very small, basic set of tools (like System.out.println or String). If you want to use more advanced features—like a Scanner for user input, an ArrayList for dynamic lists, or a Random generator—you have to tell Java where to find them.
+
+Think of importing like opening a specific toolbox before you start 
+working.
+
+Example:
+import java.util.Scanner;
+Scanner
+
+import java.util.*;
+-lahat import
+
+
+util is short for utility.
+---------------------------------------------------------------
+User Input 
+
+String x;
+Scanner s =new Scanner(System.in);
+
+x=s.nextline():
+
+The reason it works even though the variables have different names (x and s) is that they are doing two completely different jobs. Java does not require them to have matching names because they don't depend on each other's identities.
+Think of it like a real-world scenario:
+• x is an empty box (a storage space) meant to hold text.
+• s is a shovel (a tool) meant to grab data from the keyboard.
+A box and a shovel are different things, have different names, and work independently. You only bring them together when you use the shovel to dump data into the box.
+
+User Input 
+• nextLine()
+• nextInt()
+• nextShort()
+• nextLong()
+• nextByte
+• nextBoolean()
+• nextDouble()
+• nextFloat()
+
+ARITHMETIC OPERATORS
  
+addition + SUM
+subtraction - DIFFERENCE
+multiplacation * Multiplication
+division / QUOTIENT           float for precise answer
+modulus % REMAINDER
+increment ++ ADD 1   x＋＋
+decrement -- SUBTRACT 1  x--
+
+
