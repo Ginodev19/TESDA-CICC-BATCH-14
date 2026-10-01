@@ -1,7 +1,7 @@
 /**
  * HELLO WORLD
  */
-public class HelloWorld {
+public class _1HelloWorld {
 
     public static void main(String[] args) {
          System.out.print("HAHA");

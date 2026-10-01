@@ -1,6 +1,6 @@
 
 import java.util.Scanner;
-public class ImportingPackage{
+public class _2ImportingPackage{
     public static void main(String[] args) {
         int x;
         

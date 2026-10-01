@@ -148,6 +148,9 @@ decrement -- SUBTRACT 1  x--
 ARRAYS
 Is a collection of Multiple Values in a Single Variable with the Same Datatype they are governed by using an index.
 
+KUNG MAGLALAGAY KA NG datatype identifier[] = new String[] KAHIT 0 MAGSTART KAYLANGAN SAKTO KASI IYAN NEED NG EXTRA NA ISA DAHIL SA SPLICE THINGY
+
+
 bat need ng arrays? 
 
 Sa Java, kailangan natin ng arrays dahil kung wala ito, mapapagod ka sa kafo-force declare ng hiwa-hiwalay na variable para sa magkakaugnay na data.
@@ -175,3 +178,24 @@ String names[] = {"David","Alenere","Jasfer"};
 Declare w/o Values
 datatype identifier[]=new datatype[size];
 String names[] = new String[4];
+
+Index 
+is a number that represents position in a collection - tawag sa position sa array 
+0,1,2,3,4....
+
+Accessing arrays
+
+Reading Array Elements
+identifier[index];
+names[0];
+
+Assigning Array Elements
+identifier[index] = value;
+names[0] = "Jaymar";
+
+Accessing Array with user input
+
+String names[] = new String[3];
+
+Scanner s = new Scanner(System.in);
+names[0] = s.nextLine();
