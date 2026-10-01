@@ -34,15 +34,39 @@ public class ImportingPackage{
     int sum;
 
     Scanner c =new Scanner(System.in);
-    Scanner d =new Scanner(System.in);
+    
 
-    System.out.println("Enter number 1: ");
+    System.out.print("Enter number 1: ");
     num1 = c.nextInt();
 
-    System.out.println("Enter number 2: ");
-    num2 = d.nextInt();
+    System.out.print("Enter number 2: ");
+    num2 = c.nextInt();
 
     sum = num1 + num2;
-    System.out.println(num1+"+"+ num2 +"="+ sum);
-    }
+    System.out.println(num1+" + "+ num2 +" = "+ sum);
+    
+
+    System.out.print("==============================================================================================================================");
+    System.out.println("MULTIPLICATION");
+/**
+ * multipication
+ */
+int jacquelyn;
+int jacklyn;
+int product;
+
+
+
+Scanner j = new Scanner(System.in);
+
+System.out.print("Enter a number: ");
+jacquelyn = j.nextInt();
+
+System.out.print("Emter another number: ");
+jacklyn = j.nextInt();
+
+product = jacquelyn * jacklyn;
+
+System.out.println(jacquelyn + " * " + jacklyn + " = "+ product);
+}
 }

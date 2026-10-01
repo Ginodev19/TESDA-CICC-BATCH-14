@@ -4,7 +4,7 @@ The Java Development Kit (JDK) provides the development tools (like the javac co
 The Java Runtime Environment (JRE) is a software package that provides the class libraries, Java Virtual Machine (JVM), and other components required to run Java programs.
 -use to run java programs 
 
-JAVA IS STRICTLY CASE SENSITIVE
+JAVA IS STRICTLY CASE SENSITIVE AND POSITION SENSITIVE
 
  public static void main(String[] args) {
  }
@@ -117,7 +117,7 @@ User Input
 String x;
 Scanner s =new Scanner(System.in);
 
-x=s.nextline():
+x = s.nextline();
 
 The reason it works even though the variables have different names (x and s) is that they are doing two completely different jobs. Java does not require them to have matching names because they don't depend on each other's identities.
 Think of it like a real-world scenario:
@@ -145,4 +145,33 @@ modulus % REMAINDER
 increment ++ ADD 1   x＋＋
 decrement -- SUBTRACT 1  x--
 
+ARRAYS
+Is a collection of Multiple Values in a Single Variable with the Same Datatype they are governed by using an index.
 
+bat need ng arrays? 
+
+Sa Java, kailangan natin ng arrays dahil kung wala ito, mapapagod ka sa kafo-force declare ng hiwa-hiwalay na variable para sa magkakaugnay na data.
+Isipin mo na ang normal na variable ay isang maliit na kahon na kasya lang ang isang bagay. Ang array naman ay isang mahabang locker na may maraming magkakatabing compartments under one single name.
+Narito ang mga pangunahing dahilan kung bakit kailangan natin ang arrays:
+1. Iwas sa "Variable Overload" (Less Code)
+2. Madaling i-manage gamit ang Loops
+3. Maayos ang Pagkakagrupo (Data Organization)
+
+Elements
+Are individual values in an array
+
+Example:
+int[] numbers = {10, 20, 30, 40};
+• In this array, 10, 20, 30, and 40 are the elements.
+• Each element has an index (its position), starting at 0. For example, the element at index 0 is 10.
+
+Declaring arrays
+
+Declare w/Values
+
+datatype identifier[]=[val1,val2,val3,val4];
+String names[] = {"David","Alenere","Jasfer"};
+
+Declare w/o Values
+datatype identifier[]=new datatype[size];
+String names[] = new String[4];
