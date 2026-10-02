@@ -199,3 +199,69 @@ String names[] = new String[3];
 
 Scanner s = new Scanner(System.in);
 names[0] = s.nextLine();
+
+Conditional statements
+-Allows Program to take action based on the given condition. It makes our program smarter
+-Typically it compares two values so that our program can decide what action should be taken
+
+Relational OPERATORS
+
+Equals =  x==y
+Not equals !=  x!=y
+Less than <  x<y
+Less than or equals <=  x<==y
+Greater than > x>y
+Greater than or Equals >= x>=y
+
+IF Statement
+-handles 1 conditional Expression, It either does something or nothing
+
+if(condition){
+    //Do everything you want here
+}
+
+if(age>=18){
+    System.out.println("You have access!");
+}
+
+IF - ELSE Statement
+-Handles 2 Conditional Expression, It either does the first block Code block or the second Code block
+
+if(condition){
+    //Do everything you have here
+}else{
+    //Do everything you have here
+}
+
+IF - ELSE   IF - ELSE Statement
+-Handles 3 or more Conditional Expression the possibility of this statements are limitless it will run a certain code block based on the condition----- unlimited else if
+
+code block tawag sa gitna ng curly braces 
+gagana sya kahit wlang curly braces basta one liner
+
+if(condition){
+    //Do everything you want here
+}else if(condition){
+    //Do everything you want here
+}else{
+    //Do everything you want here
+}
+
+if(age >= 18){
+    System.out.println("You have Access!");
+}else if(age >=13){
+    System.out.println("You Need Parent Consent!");
+}else{
+    System.out.println("Access Denied");
+}
+
+NESTED CONDITIONAL STATEMENT
+-a conditional statement within a conditional statement
+Ps. The nested conditional statement can be any type of Conditional statement
+
+if(condition){
+
+    if(condition){
+        //Do Anything you want here
+    }
+}
