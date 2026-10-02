@@ -1,0 +1,710 @@
+CHAPTER 1 PART 1
+
+FIELDS AND METHODS 
+
+METHODS - often calle functions or procedures in other language
+FIELDS -more generally known as variables
+VARIABLES -hold the state of the program, and methods operate on that state
+
+class Student {
+│
+├── String name;       ← FIELD
+├── int age;           ← FIELD
+├── double grade;      ← FIELD
+│
+└── void introduce() { ← METHOD
+       ...
+   }
+}
+
+COMMENTS 
+
+// comment until end of line 
+
+/*Multiple
+*line comment
+*/
+/**
+*Javadoc multiple-line comment
+*@author Jeanne and Scott
+*/
+
+CLASSES VS. FILES
+
+1: class Animal {                    PAGCLASS WALANG PUBLIC
+2: String name;   
+}
+
+1: public class Animal {
+2:  private String name;
+3:}
+4: class Animal2{
+5:}
+
+WRITING A METHODS
+
+main() - gateway between the startup of Java process
+JVM calls on the underlying system to allocate memory and CPU time, access files, and so on.
+
+JVM = Java Virtual Machine
+Ito ang environment/program na nag-e-execute ng Java bytecode.
+
+1: public class Zoo {
+2:  public static void main(String[]args){
+3:
+4:  }
+5:}
+
+COMPILING JAVA 
+
+Java Development Kit(JDK)
+Java Runtime Environment(JRE)
+extension . java => bytecode 
+Bytecode consist of instructions that the JVM knows how to execute
+
+$javac Zoo.java   -   java compiler        Ginagamit ito para i-compile ang Java source code (.java) papunta sa bytecode (.class)      this code will create a new class 
+$java Zoo    run the source code 
+
+PACKAGE DECLARATIONS AND IMPORTS
+
+Thousands of built-in CLASSES
+Java needs a way to organize them
+Java puts classes in packages.
+
+need magimport para mapagana - tawag sa mga iniimport at built-in classes 
+
+
+public class ImportExamples{
+    public static void main(String[]args){
+        Random r = new Random(); //DOES NOT COMPILE
+        System.out.println("r.nextInt(10));
+    }
+}
+
+Random cannot be resolved to a type
+
+import java.util.Random; // import tells us where to find Random
+pubic class ImportExample{
+    public static void main (String []args){
+        Random r = new Random();
+        System.out.println(r.nextInt(10));// print a number between 0 and 9
+    }
+}
+
+PACKAGE DECLARATIONS AND IMPORTS
+
+You can use a shortcut to import all the classes in a packages
+import java.util.*;
+
+Redundant imports 
+
+1: import java.lang.System;
+2: import java.lang.*;
+3: import java.util.Random;
+4. import java.util*;
+
+WILDCARDS
+
+Ang * ang wildcard.
+
+1:import java.lang.System;
+2:import java.lang.*;
+3:import java.util.Random;
+4:import java.util.*;
+
+wildcard lahat ng built in class galing util ipapasok mo
+
+
+CHAPTER 1 PART 2
+
+
+
+Naming Conflicts 
+
+java    .    util    .    Date    date
+ ↑             ↑          ↑        ↑
+package     package      CLASS    variable
+
+
+bawal parehas na class name iimport mo
+
+
+import java.util.*;
+import java.sql.*;
+import java.util.Date;
+import java.sql.*;
+
+public class Conflicts{
+     Date date;
+     // some more code
+}
+
+import java.util.Date;
+import java.sql.Date;
+
+import java.util.Date;
+
+public class Conflicts{
+    Date date;
+    java.sql.Date sqlDate;
+}
+
+public class Conflicts{
+    java.util.Date date;
+    java.util.Date sqlDate;
+}
+
+CREATING A NEW PACKAGE
+
+C:\temp          ← ordinary folder / project root
+└── animals      ← package folder
+    └── Dog.java
+
+    
+
+C:\tempt\packagea\ClassA.java
+
+package packagea;
+public class ClassA{
+
+}
+
+C:\tempt\packageb\ClassB.java
+
+package packageb;
+import packagea.ClassA;
+public class ClassB{
+    public static void main(String[]args){
+        ClassA a;
+        System.out.println("Got it");
+    }
+}
+
+C:\temp\packagea\ClassA.java
+C:\temp\packageb\ClassB.java
+
+javac packagea/ClassA.java packageb/ClassB.java
+
+java packageb.ClassB
+
+
+JAR FILE
+
+Common JAR file operations
+
+Operation                                            Command    
+
+To create a JAR file                         jar cf jar-file input-file(s)
+
+To view the contents of a JAR file           jar tf jar-file 
+
+To extract the contents of a JAR file        jar xf jar-file
+
+To extract specific files from a JAR file    jar xf jar-file archived-file(s)
+
+To run an application packaged as a JAR file java -jar app.jar
+(requires the Main-class mainifest header)
+
+To invoke an applet packaged as a JAR file.  <applet code=AppletClassName.class archive="JarFileName.jar" width=width height=height>
+                                               </applet>
+
+
+CODE FORMATTING ON THE EXAM
+
+1: public class LineNumbers{
+2: public void method(ArrayList list){
+3: if(list.isEmpty()) {System.out.println("e");
+4: } else {System.out.println("n");
+5:}}}
+6:public void method(ArrayList list){
+7: if(list.isEmpty()){System.out.print.ln("e");
+8:} else{System.out.println("n);
+9:}}
+
+CREATING OBJECTS CONSTRUCTORS
+
+Random r = new Random();
+
+public class Chick {
+    public Chick() {
+        System.out.println("in constructor");
+    }
+}
+
+public void Chick() {  }. // Not a constructor
+
+
+public class Chicken {
+    int numEggs = 0; // initialize on line 
+    String name;
+    public Chicken() {
+        name = "Duke"; // initialize in constructor
+    }}
+
+CREATING OBJECTS: Reading and Writing Object Fields 
+
+public class Swan {
+    int numberEggs;// instance variable
+    public static void main(String[]args){
+        Swan mother = new Swan();
+        mother.numberEggs = 1;   //set variable
+        System.out.println(mother.numberEggs); // read variable
+    }
+}
+
+1: public class name{
+    String first = "Theodore";
+    String last = "Moose";
+    String full = first + last;
+}
+
+CREATING OBJECTS: Instance Initialize Blocks
+3: public static void main(String[] args){
+4: {System.out.println("Feathers");}   
+5:}
+6:{System.out.println("Snowy")}
+
+CREATING OBJECTS ORDER OF INITIALIZATION
+-Field and Instance initializer blocks are run in the order in which they appear in the file
+-The constructor runs after all fields and instance initializer blocks have run.
+
+1: public class Chick {
+2: private String name ="Fluffy";
+3:{System.out.println("setting field");}
+    public Chick() {
+        name = "Tiny";
+        System.out.println("setting constructor");
+    }
+    public static void main(String[]args){
+        Chick chick = new Chick();
+        System.out.println("chick.name");}}
+
+
+What is the proper filename extension for a Java bytecode compiled file?
+A. .java
+B. .bytecode
+C. .class
+D. .dll
+
+
+
+Given that a Date class exists in both the java.util and java.sql packages, what is the result of compiling the following class?
+1: import java.util.*;
+2: import java.sql.*;
+3: public class BirthdayManager {
+4: private Date rob = new Date();
+5: private java.util.Date sharon = new java.util.Date();
+6: }
+
+A. The code does not compile because of lines 1 and 2.
+B. The code does not compile because of line 4.
+C. The code does not compile because of line 5.
+D. The code compiles without issue.
+
+
+Which package is imported into every Java class by default?
+A. java.util
+B. java.lang
+C. system.lang
+D. java.system
+
+
+
+Which of the following is not a valid code comment in Java?
+A. // Add 5 to the result
+B. /*** TODO: Fix bug 12312 */
+C. # Add configuration value
+D. /* Read file from system
+
+
+Which statement about a valid .java file is true?
+A. It can only contain one class declaration 
+B. It can contain one public class declaration and one public interface definition
+C. It must define at least one public class 
+D. It may define at most one public class
+
+Which statement about import statements is true?
+A. The class will not compile if it contains unused import statements.
+B. Unused import statements can be removed from the class without causing a class to become unable to be compiled.
+C. The class will not compile if a duplicate import statement is present.
+D. If a class contains an import statement in the program that cannot be found, it can still compile.
+
+What is the result of compiling and executing the following class?
+
+1: public class ParkRanger {
+2:     int birds = 10;
+3:     public static void main(String[] data) {
+4:         int trees = 5;
+5:         System.out.print(trees+birds);
+6:     }
+7: }
+
+A. It does not compile.
+B. It compiles but throws an exception at runtime.
+C. It compiles and outputs 5.
+D. It compiles and outputs 15.
+
+
+Which statements about Java are true?
+I. The java command can execute .java and .class files.
+II. Java is not object oriented.
+III. The javac command compiles directly into native machine code.
+
+A. I only
+B. III only
+C. II and III
+D. None are true
+
+Which of the following lines of code is not allowed as the first line of a Java class file?
+A. import widget.*;
+B. // Widget Manager
+C. package sprockets;
+D. int facilityNumber;
+
+Which one of the following statements is true about using packages to organize your code in Java?
+A. Every class is required to include a package declaration.
+B. To create a new package, you need to add a .init file to the directory.
+C. Packages allow you to limit access to classes, objects and methods within a package.
+D. It is not possible to restrict access to classes, methods, or data from classes outside the package.
+
+Given that the current directory is /user/home, with an application Java file in /user/home/Manager.java that uses the default package, which are the commands to compile and run the application in Java?
+A. javac Manager
+java ManagerObjects vs. References
+
+A Reference:
+
+Has a name.
+
+A reference may or may not be created on the heap.
+
+All references are the same size no matter what their data type is, and are accessed via their variable name.
+
+The Heap / An Object:
+
+Objects are always on the heap.
+
+They have no name and can only be accessed via a reference.
+
+Objects vary in size depending on their class definition.Objects vs. References
+
+A Reference:
+
+Has a name.
+
+A reference may or may not be created on the heap.
+
+All references are the same size no matter what their data type is, and are accessed via their variable name.
+
+The Heap / An Object:
+
+Objects are always on the heap.
+
+They have no name and can only be accessed via a reference.
+
+Objects vary in size depending on their class definition.
+
+B. javac Manager.java
+java Manager
+
+C. javac Manager
+java Manager.class
+
+D. javac Manager.java
+java Manager.class
+
+Given the following class definition, which is the only line that does not contain a compilation error?
+
+1: public ThisClassDoesNotCompile {
+2:     double int count;
+3:     void errors() {}
+4:     static void private limit; }
+
+A. Line 1
+B. Line 2
+C. Line 3
+D. Line 4
+
+
+
+Chapter 1 Part 3
+
+
+
+Distinguishing Between Object References and Primitives
+
+Primitive Types
+
+Keyword	     Type	                Example
+boolean	   true or false	         true
+byte	   8-bit integral value	     123
+short	   16-bit integral value	 123
+int	       32-bit integral value	 123
+long	   64-bit integral value	 123
+float	32-bit floating-point value	123.45f
+double	64-bit floating-point value	123.456
+char	16-bit Unicode value	      'a'
+
+What Is the Largest int?
+
+You do not have to know this for the exam, but the maximum number an int can hold is 2,147,483,647. How do we know this? One way is to have Java tell us:
+JavaSystem.out.println(Integer.MAX_VALUE);
+
+The other way is with math. An int is 32 bits, $2^{32}$ is 4,294,967,296. Divide that by 2 and you get 2,147,483,648. Then subtract 1 as we did with bytes and you get 2,147,483,647.
+
+It's easier to just ask Java to print the value, isn't it?
+
+Literals
+
+When a number is present in the code, it is called a literal. By default, Java assumes you are defining an int value with a literal.
+
+For example, the following are examples of literals in Java:
+
+42 (an integer literal)
+3.14 (a floating-point literal)
+'a' (a character literal)
+"hello" (a string literal)
+true (a boolean literal)
+null (a null reference literal)
+
+Java
+int i = 42;             // integer literal
+double pi = 3.14;       // floating-point literal
+char c = 'a';           // character literal
+String s = "hello";     // string literal
+boolean b = true;       // boolean literal
+
+long max = 3123456789;  // DOES NOT COMPILE
+long max = 3123456789L; // now Java knows it is a long
+Slide 5
+Title: Underscores in Literals
+
+You can have underscores in numbers to make them easier to read:
+
+Java
+int million1 = 1000000;
+int million2 = 1_000_000;
+
+double notAtStart = _1000;      // DOES NOT COMPILE
+double notAtEnd = 1000_;        // DOES NOT COMPILE
+double notByDecimal = 1000_.00; // DOES NOT COMPILE
+
+double annoying = 1_00_0.0_0;   // this one compiles
+
+Underscores in Literals
+
+You can have underscores in numbers to make them easier to read:
+
+Java
+int million1 = 1000000;
+int million2 = 1_000_000;
+
+double notAtStart = _1000;      // DOES NOT COMPILE
+double notAtEnd = 1000_;        // DOES NOT COMPILE
+double notByDecimal = 1000_.00; // DOES NOT COMPILE
+
+double annoying = 1_00_0.0_0;   // this one compiles
+
+Reference Types
+
+A reference type refers to an object (an instance of a class).
+
+References do not hold the value of the object they refer to.
+
+A reference "points" to an object by storing the memory address where the object is located.
+
+Java
+java.util.Date today;
+String greeting;
+The today variable is a reference of type Date and can only point to a Date object.
+
+The greeting variable is a reference that can only point to a String object.
+
+Reference vs Object Memory Layout
+(Diagram Illustration)
+
+A Date reference: today $\rightarrow$ A Date object: day: 29, month: 7, year: 2011
+A String reference: greeting $\rightarrow$ A String object: "How are you?"
+
+Key Differences (Primitives and Reference Types)
+
+Reference types can be assigned null.
+
+Primitive types will give you a compiler error if you attempt to assign them null.
+
+Java
+int value = null;    // DOES NOT COMPILE
+String s = null;     // Compiles: points to no object
+Primitive types cannot point to null because they store raw values.
+
+Primitive types have lowercase type names (int, char, double, etc.).
+
+
+ Declaring and Initializing Variables
+
+A variable is a name for a piece of memory that stores data.
+
+Syntax: Type name; or Type name = value;
+
+Java
+String s1, s2;
+String s3 = "yes", s4 = "no";
+
+String zooName = "The Best Zoo";
+int numberAnimals = 100;
+
+Java Reserved Words (Keywords)
+
+abstract	assert	boolean	break	byte
+case	catch	char	class	continue
+default	do	double	else	enum
+extends	false	final	finally	float
+for	goto	if	implements	import
+instanceof	int	interface	long	native
+new	null	package	private	protected
+public	return	short	static	strictfp
+super	switch	synchronized	this	throw
+throws	transient	true	try	void
+volatile	while
+
+
+
+
+Chapter 1 part 4
+
+
+
+
+ Local Variables
+
+A variable defined within a method.
+
+Must be initialized before use.
+
+Do not have a default value and contain garbage data until initialized.
+
+Java
+4: public int notValid() {
+5:     int y = 10;
+6:     int x; // x is declared here
+7:     // x = 3; // and initialized here
+8:     int reply = x + y; // DOES NOT COMPILE
+9:     return reply;
+10: }
+
+public int valid() {
+    int y = 10;
+    int x; // x is declared here
+    x = 3; // and initialized here
+    int reply = x + y;
+    return reply;
+}
+
+Instance and Class Variables
+
+Variables that are not local variables are known as instance variables or class variables.
+
+Instance and class variables do not require you to initialize them—they are given a default value.
+
+Variable Type	           Default Initialization Value
+boolean	                           false
+byte, short, int, long	    0 (in the type's bit-length)
+float, double	           0.0 (in the type's bit-length)
+char	                       '\u0000' (NUL)
+All object references (everything else)	 null
+
+
+
+Understanding Variable Scope
+
+Local variables can never have a scope larger than the method they are defined in.
+
+Rules on scope:
+
+Local variables: in scope from declaration to end of block
+
+Instance variables: in scope from declaration until object garbage collected
+
+Class variables: in scope from declaration until program ends
+
+16: public void eatIfHungry(boolean hungry) {
+17:     if (hungry) {
+18:         int bitesOfCheese = 1;
+19:         {
+20:             boolean teenyBit = true;
+21:             System.out.println(bitesOfCheese);
+22:         }
+23:     }
+24:     System.out.println(teenyBit); // DOES NOT COMPILE
+25: }
+
+Variable Scope (Continued Example)
+
+11: public void eatMore(boolean hungry, int amountOfFood) {
+12:     int roomInBelly = 5;
+13:     if (hungry) {
+14:         boolean timeToEat = true;
+15:         while (amountOfFood > 0) {
+16:             int amountEaten = 2;
+17:             roomInBelly -= amountEaten;
+18:             amountOfFood -= amountEaten;
+19:         }
+20:     }
+21:     System.out.println(amountOfFood);
+22: }
+
+Ordering Elements in a Class
+
+Element                       Example                 Required?             Where does it go?
+
+Package declaration     package structure;              No               First line in the file
+Import statementsimport    java.util.*;                 No          Immediately after the package
+Class declaration           public class ClassName.     Yes.          Immediately after the import
+Field declarations              int value;              No              Anywhere inside a class
+Method declarations           void method()              No             Anywhere inside a class
+
+Destroying Objects
+
+Java provides a garbage collector to automatically look for objects that aren't needed anymore.
+
+All Java objects are stored in your program memory's heap.
+
+The heap, which is also referred to as the free store, represents a large pool of unused memory allocated to your Java application.
+
+If your program keeps instantiating objects and leaving them on the heap, it will run out of memory.
+
+
+Garbage Collection   
+
+Refers to the process of automatically freeing memory on the heap by deleting objects that are no longer reachable in your program. There are many different algorithms for garbage collection.   
+
+Java provides a method called System.gc() — It meekly suggests that now might be a good time for Java to kick off a garbage collection run. Java is free to ignore the request.
+
+An object is no longer reachable when one of two situations occurs:
+
+The object no longer has any references pointing to it.
+
+All references to the object have gone out of scope.
+
+
+Objects vs. References
+
+A Reference:
+
+Has a name.
+
+A reference may or may not be created on the heap.
+
+All references are the same size no matter what their data type is, and are accessed via their variable name.
+
+
+
+The Heap / An Object:
+
+Objects are always on the heap.
+
+They have no name and can only be accessed via a reference.
+
+Objects vary in size depending on their class definition.
+
+
+
