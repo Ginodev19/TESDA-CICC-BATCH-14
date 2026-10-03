@@ -3,7 +3,6 @@
  * simply prints "Hello World!" to standard output.
  */
 
-package T_CICC_B14;
 public class Task1{
 
     
