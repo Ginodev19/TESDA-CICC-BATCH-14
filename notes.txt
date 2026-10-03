@@ -190,6 +190,13 @@ java packageb.ClassB
 
 JAR FILE
 
+meaning Java ARchive
+
+
+For beginners in programming, think of a JAR file as the "app installer" or ".exe file" of the Java world.
+When you write a Java program, you usually end up with dozens of separate code files (.java and .class files), plus images, sounds, and settings folders. A JAR (Java Archive) file takes all of these messy, separate pieces and squashes them into one single, neat file.
+
+
 Common JAR file operations
 
 Operation                                            Command    
@@ -221,9 +228,30 @@ CODE FORMATTING ON THE EXAM
 8:} else{System.out.println("n);
 9:}}
 
+Corrected version:
+public class LineNumbers {
+
+    public void method(ArrayList list) {
+
+        if (list.isEmpty()) {
+            System.out.println("e");
+        } else {
+            System.out.println("n");
+        }
+    }
+}
+
 CREATING OBJECTS CONSTRUCTORS
 
+Random     r       =       new Random();
+  ↑        ↑               ↑
+ class   variable        gumawa ng object
+
+
 Random r = new Random();
+
+
+
 
 public class Chick {
     public Chick() {
@@ -233,6 +261,8 @@ public class Chick {
 
 public void Chick() {  }. // Not a constructor
 
+Ang void ay nagsasabi na ito ay method na walang ibinabalik na value.(wlang void ang constructor)
+Ang constructor ay isang special na bahagi ng class na automatic na tumatakbo kapag gumawa ka ng bagong object
 
 public class Chicken {
     int numEggs = 0; // initialize on line 
@@ -242,6 +272,7 @@ public class Chicken {
     }}
 
 CREATING OBJECTS: Reading and Writing Object Fields 
+
 
 public class Swan {
     int numberEggs;// instance variable
@@ -259,6 +290,18 @@ public class Swan {
 }
 
 CREATING OBJECTS: Instance Initialize Blocks
+
+          Swan CLASS
+        (blueprint)
+             │
+       ┌─────┴─────┐
+       ↓           ↓
+    mother       father
+    OBJECT       OBJECT
+      │             │
+ numberEggs      numberEggs
+
+ 
 3: public static void main(String[] args){
 4: {System.out.println("Feathers");}   
 5:}
@@ -278,6 +321,33 @@ CREATING OBJECTS ORDER OF INITIALIZATION
     public static void main(String[]args){
         Chick chick = new Chick();
         System.out.println("chick.name");}}
+        
+Field initializer
+
+Ito ay kapag binigyan mo agad ng value ang field noong dineclare mo ito.
+
+public class Bird {
+
+    String name = "Snowy";
+    int age = 2;
+
+}
+
+
+Instance initializer block
+
+Ito naman ay isang block na direktang nasa loob ng class:
+
+        public class Bird {
+
+    {
+        System.out.println("Snowy"); - eto yung initializer block need ng object para gumana
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Feathers");
+    }
+}
 
 
 What is the proper filename extension for a Java bytecode compiled file?
@@ -286,6 +356,7 @@ B. .bytecode
 C. .class
 D. .dll
 
+Answer: c. .class
 
 
 Given that a Date class exists in both the java.util and java.sql packages, what is the result of compiling the following class?
@@ -302,12 +373,60 @@ C. The code does not compile because of line 5.
 D. The code compiles without issue.
 
 
+Answer : B.
+
+Here is the problem.
+
+When Java sees:
+
+Date
+
+it has two possible classes:
+
+java.util.Date
+       OR
+java.sql.Date
+
+Java doesn't know which one you mean.
+
+This is called an ambiguous reference or naming conflict.
+
+So line 4 causes the compilation error.
+
+
+Kapag ginawa mo:
+import java.util.*;
+import java.sql.*;
+
+Date rob = new Date();
+
+❌ Ambiguous — hindi alam ni Java kung:
+
+java.util.Date
+
+o:
+
+java.sql.Date
+
+ang gusto mo.
+
+Pero puwede mong gamitin ang Date
+
+Kung isang specific Date lang ang i-import:
+
+import java.util.Date;
+
+Date rob = new Date();
+
+
 Which package is imported into every Java class by default?
 A. java.util
 B. java.lang
 C. system.lang
 D. java.system
 
+Answer: B. java.lang
+Ang java.lang package ay automatically available sa bawat Java source file.
 
 
 Which of the following is not a valid code comment in Java?
@@ -317,17 +436,25 @@ C. # Add configuration value
 D. /* Read file from system
 
 
+Correct answer: C. # Add configuration value
+
+
 Which statement about a valid .java file is true?
 A. It can only contain one class declaration 
 B. It can contain one public class declaration and one public interface definition
 C. It must define at least one public class 
 D. It may define at most one public class
 
+Correct answer: D. It may define at most one public class
+
 Which statement about import statements is true?
 A. The class will not compile if it contains unused import statements.
 B. Unused import statements can be removed from the class without causing a class to become unable to be compiled.
 C. The class will not compile if a duplicate import statement is present.
 D. If a class contains an import statement in the program that cannot be found, it can still compile.
+
+Correct answer: B. Unused import statements can be removed from the class without causing a class to become unable to be compiled.
+
 
 What is the result of compiling and executing the following class?
 
@@ -345,6 +472,26 @@ C. It compiles and outputs 5.
 D. It compiles and outputs 15.
 
 
+Correct answer: A. It does not compile.
+
+Tingnan natin:
+
+public class ParkRanger {
+    int birds = 10;
+
+    public static void main(String[] data) {
+        int trees = 5;
+        System.out.print(trees + birds);
+    }
+}
+
+Ang problema ay nasa:
+
+System.out.print(trees + birds);
+
+
+
+
 Which statements about Java are true?
 I. The java command can execute .java and .class files.
 II. Java is not object oriented.
@@ -354,6 +501,14 @@ A. I only
 B. III only
 C. II and III
 D. None are true
+
+Correct answer: D. None are true
+
+Let's check each statement:
+
+I. ❌ False
+
+The java command can execute .java and .class files.
 
 Which of the following lines of code is not allowed as the first line of a Java class file?
 A. import widget.*;
@@ -367,63 +522,81 @@ B. To create a new package, you need to add a .init file to the directory.
 C. Packages allow you to limit access to classes, objects and methods within a package.
 D. It is not possible to restrict access to classes, methods, or data from classes outside the package.
 
-Given that the current directory is /user/home, with an application Java file in /user/home/Manager.java that uses the default package, which are the commands to compile and run the application in Java?
-A. javac Manager
-java ManagerObjects vs. References
+Correct answer: D. int facilityNumber;
 
-A Reference:
+Which one of the following statements is true about using packages to organize your code in Java?
 
-Has a name.
+A. Every class is required to include a package declaration.
 
-A reference may or may not be created on the heap.
+B. To create a new package, you need to add a .init file to the directory.
 
-All references are the same size no matter what their data type is, and are accessed via their variable name.
+C. Packages allow you to limit access to classes, methods, or data from classes outside the package.
 
-The Heap / An Object:
+D. It is not possible to restrict access to classes, methods, and data within a package.
 
-Objects are always on the heap.
 
-They have no name and can only be accessed via a reference.
+C. ✅ True
 
-Objects vary in size depending on their class definition.Objects vs. References
+Packages allow you to limit access to classes, methods, or data from classes outside the package.
 
-A Reference:
+Tama.
 
-Has a name.
+Halimbawa:
 
-A reference may or may not be created on the heap.
+package animals;
 
-All references are the same size no matter what their data type is, and are accessed via their variable name.
+public class Animal {
+    int age;
+}
 
-The Heap / An Object:
+Ang age ay walang public, private, o protected, kaya ito ay package-private.
 
-Objects are always on the heap.
+Ibig sabihin, accessible ito sa classes within the same package, pero hindi directly accessible mula sa ibang package.
 
-They have no name and can only be accessed via a reference.
+Packages therefore help with access control at organization.
 
-Objects vary in size depending on their class definition.
 
-B. javac Manager.java
-java Manager
 
-C. javac Manager
-java Manager.class
 
-D. javac Manager.java
-java Manager.class
+Given that the current directory is /user/home, with an application Java file in /user/home/Manager.java that uses the default package, which are the correct commands to compile and run the application in Java?   
 
-Given the following class definition, which is the only line that does not contain a compilation error?
+A. javac Manager   
+java Manager   
 
-1: public ThisClassDoesNotCompile {
-2:     double int count;
-3:     void errors() {}
-4:     static void private limit; }
+B. javac Manager.java   
+java Manager   
 
-A. Line 1
-B. Line 2
-C. Line 3
+C. javac Manager   
+java Manager.class   
+
+D. javac Manager.java   
+java Manager.class.
+
+Correct answer: B
+
+
+Given the following class definition, which is the only line that does not contain a compilation error?   
+
+1: public ThisClassDoesNotCompile {   
+
+2: double int count;   
+
+3: void errors() {}   
+
+4: static void private limit; }   
+
+A. Line 1   
+
+B. Line 2   
+
+C. Line 3   
+
 D. Line 4
 
+Correct Answer: C. Line 3 ✅
+void errors() {}
+
+Ito ay valid na method declaration.
 
 
 Chapter 1 Part 3
@@ -455,6 +628,14 @@ It's easier to just ask Java to print the value, isn't it?
 
 Literals
 
+A literal is a value that is written directly in your Java code.
+
+For example:
+
+int i = 42;
+
+Here, 42 is a literal because the value is written directly in the cod
+
 When a number is present in the code, it is called a literal. By default, Java assumes you are defining an int value with a literal.
 
 For example, the following are examples of literals in Java:
@@ -475,7 +656,9 @@ boolean b = true;       // boolean literal
 
 long max = 3123456789;  // DOES NOT COMPILE
 long max = 3123456789L; // now Java knows it is a long
-Slide 5
+
+
+
 Title: Underscores in Literals
 
 You can have underscores in numbers to make them easier to read:
@@ -538,6 +721,30 @@ Primitive types cannot point to null because they store raw values.
 
 Primitive types have lowercase type names (int, char, double, etc.).
 
+Reference vs. Primitive
+
+The biggest difference is:
+
+Primitive
+int value = 10;
+
+value ─────> 10
+             actual value
+
+versus:
+
+Reference
+String s = "hello";
+
+s ─────────> String object
+             "hello"
+null
+
+Reference variables can contain null.
+
+String s = null;
+
+
 
  Declaring and Initializing Variables
 
@@ -551,6 +758,35 @@ String s3 = "yes", s4 = "no";
 
 String zooName = "The Best Zoo";
 int numberAnimals = 100;
+
+Reference Types in Java
+
+A reference type is a type whose variable refers to an object, which is an instance of a class.
+
+For example:
+
+java.util.Date today;
+String greeting;
+
+Here:
+
+today is a reference variable of type Date.
+greeting is a reference variable of type String.
+The variables themselves do not contain the object's data directly.
+They refer to objects.
+
+Conceptually:
+
+today ────────> Date object
+                 day: 29
+                 month: 7
+                 year: 2011
+
+greeting ─────> String object
+                 "How are you?"
+
+
+
 
 Java Reserved Words (Keywords)
 
@@ -566,7 +802,9 @@ super	switch	synchronized	this	throw
 throws	transient	true	try	void
 volatile	while
 
+Java Reserved Words (Keywords)
 
+Reserved words, also called keywords, are words that Java has given a special meaning to. You cannot use them as variable, method, or class names.
 
 
 Chapter 1 part 4
@@ -708,3 +946,235 @@ Objects vary in size depending on their class definition.
 
 
 
+LOCAL VARIABLES
+────────────────────────────
+• Declared inside a method/block
+• Must be initialized before use
+• No automatic default value
+• Scope ends at the end of their block
+
+public class Example {
+    public static void main(String[] args) {
+        int age = 25;
+        String name = "John";
+
+        System.out.println(name);
+        System.out.println(age);
+    }
+}
+
+main()
+│
+├── age = 25       ← local variable
+└── name = "John"  ← local variable
+
+public int calculate() {
+    int x;       // declaration
+    x = 10;      // initialization
+
+    int y = 20;  // declaration + initialization
+
+    return x + y;
+}
+
+
+
+INSTANCE VARIABLES
+────────────────────────────
+• Belong to an object
+• Automatically get default values
+• Exist as part of the object's state
+
+public class Student {
+
+    String name;  // instance variable
+    int age;      // instance variable
+
+    public void display() {
+        System.out.println(name);
+        System.out.println(age);
+    }
+}
+
+name → instance variable
+age  → instance variable
+
+They belong to each Student object.
+
+
+CLASS VARIABLES
+────────────────────────────
+• Declared with static
+• Belong to the class
+• Automatically get default values
+
+Class Variable Example
+
+A class variable is a variable declared with the static keyword. It belongs to the class itself, rather than to individual objects.
+
+public class Student {
+
+    static int numberOfStudents = 0;  // class variable
+
+    String name;                       // instance variable
+}
+
+Here:
+
+numberOfStudents → class variable
+name             → instance variable
+
+Student class
+│
+└── numberOfStudents = 2
+        ↑
+        │
+   shared by all objects
+
+s1 ──> Student object
+s2 ──> Student object
+
+REFERENCE
+────────────────────────────
+• Refers to an object
+• Can be null
+• Does not contain the object's data itself
+
+Reference Variable Example
+
+A reference variable is a variable that refers to an object.
+
+For example:
+
+public class Student {
+    String name;
+}
+
+Now create an object:
+
+Student student = new Student();
+
+Here:
+
+Student → reference type
+student → reference variable
+new Student() → object
+
+Conceptually:
+
+student ─────────> Student object
+                    name = null
+
+The variable student does not contain the Student object's data directly. It refers to the object.
+
+Reference Can Be null
+
+You can also write:
+
+Student student = null;
+
+Now:
+
+student ─────> null
+
+This means student does not currently refer to any object.
+
+
+
+OBJECT
+────────────────────────────
+• Created with new
+• Stored on the heap
+• Can become eligible for garbage collection
+
+
+Object Example
+
+An object is an instance of a class. You commonly create an object using the new keyword.
+
+Student student = new Student();
+
+There are two important parts here:
+
+Student student = new Student();
+       ↑                  ↑
+    reference           object
+
+Conceptually:
+
+student ─────────> Student object
+                    name = null
+                    age  = 0
+
+
+GARBAGE COLLECTION
+────────────────────────────
+• Reclaims heap memory from unreachable objects
+• Happens automatically
+• System.gc() is only a request, not a guarantee
+
+Garbage Collection Example
+
+Garbage collection (GC) is Java's automatic process for reclaiming heap memory from objects that are no longer reachable.
+
+You don't normally need to manually delete objects.
+
+1. Creating an Object
+Student student = new Student();
+
+Conceptually:
+
+student ─────────> Student object
+                    (on the heap)
+
+The object is reachable because student refers to it.
+
+2. The Object Becomes Unreachable
+
+Now suppose:
+
+student = null;
+
+Conceptually:
+
+student ─────> null
+
+Student object
+     ↑
+     no reference
+
+The Student object is now unreachable.
+
+It becomes eligible for garbage collection.
+
+Eligible does not mean Java immediately deletes it.
+
+The JVM decides when garbage collection actually happens.
+
+
+new Student()
+     ↓
+Object created
+     ↓
+Reference points to object
+     ↓
+Reference becomes null
+     ↓
+Object may become unreachable
+     ↓
+Eligible for garbage collection
+     ↓
+JVM may reclaim its memory
+
+Why is this useful?
+
+Without garbage collection, your program would have to manually find and delete objects that are no longer needed.
+
+Java handles this automatically.
+
+This helps:
+
+♻️ Reuse memory for new objects
+🧹 Remove objects that are no longer needed
+💾 Prevent unnecessary memory consumption
+🛡️ Reduce certain types of memory-management errors
