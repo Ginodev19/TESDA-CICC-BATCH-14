@@ -341,7 +341,7 @@ Ito naman ay isang block na direktang nasa loob ng class:
         public class Bird {
 
     {
-        System.out.println("Snowy"); - eto yung initializer block need ng object para gumana
+        System.out.println("Snowy"); - eto yung initializer block need ng oject para gumana , gagana yung code pero etong block hindi
     }
 
     public static void main(String[] args) {
