@@ -8,12 +8,12 @@ VARIABLES -hold the state of the program, and methods operate on that state
 
 class Student {
 │
-├── String name;       ← FIELD
+├── String name;       ← FIELDc -Instance
 ├── int age;           ← FIELD
 ├── double grade;      ← FIELD
 │
 └── void introduce() { ← METHOD
-       ...
+       ...-local
    }
 }
 
